@@ -48,4 +48,44 @@ function dropOneInterest(id, dropOneInterest) {
   return ObjArr;
 }
 
-console.log(dropOneInterest(1, "Singer"));
+let dropInterest = dropOneInterest(1, "Singer");
+
+function dropOneObj(id) {
+  let result = ObjArr.filter((obj) => obj.id !== id);
+  ObjArr = result;
+  return result;
+}
+
+let dropOneObject = dropOneObj(3);
+
+function changeNameAge(id, name = null, age = null) {
+  let result = ObjArr.filter((obj) => obj.id === id);
+  for (const elements of result) {
+    if (name !== null) {
+      elements.name = name;
+    }
+    if (age !== null) {
+      elements.age = age;
+    }
+  }
+  result = ObjArr;
+
+  return result;
+}
+
+let changing = changeNameAge(2, "Daniel", 30);
+
+function changeInterest(id, oldInterest, newInterest) {
+  let result = ObjArr.filter((obj) => obj.id === id);
+  result.forEach((e) => {
+    let arrayInt = e.interest;
+    let index = arrayInt.indexOf(oldInterest);
+    arrayInt.splice(index, 1, newInterest);
+  });
+
+  result = ObjArr;
+}
+
+let changeInt = changeInterest(2, "Singing", "Playing video Games");
+
+console.log(ObjArr);
