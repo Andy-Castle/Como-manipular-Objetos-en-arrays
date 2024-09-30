@@ -60,3 +60,11 @@ let ProjecstTodos = [
     ],
   },
 ];
+
+//Crear un nuevo proyecto individual
+//Eliminar un proyecto
+//Modificar el nombre del proyecto
+
+//Crear un nuevo to do a un proyecto especifico
+//Eliminar un to do de un proyecto especifico
+//Modificar un to do de un proyecto especifico
