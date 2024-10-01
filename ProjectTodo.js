@@ -61,9 +61,42 @@ let ProjecstTodos = [
   },
 ];
 
+//Buscar un proyecto individual
+function findAProyect(nameProject) {
+  return ProjecstTodos.filter((p) => p.title === nameProject);
+}
+// console.log(findAProyect("Default"));
+
 //Crear un nuevo proyecto individual
+function createAProject(name) {
+  let lastIndex = ProjecstTodos.length - 1;
+  let lastProjectId = ProjecstTodos[lastIndex].id;
+  ProjecstTodos.push({ id: lastProjectId + 1, name: name, todoList: [] });
+  return ProjecstTodos;
+}
+// console.log(createAProject("Friday"));
+// console.log(createAProject("Frida"));
+
 //Eliminar un proyecto
+function deleteOneProject(id) {
+  let result = ProjecstTodos.filter((p) => p.id !== id);
+  ProjecstTodos = result;
+  return ProjecstTodos;
+}
+// console.log(deleteOneProject(4));
+
 //Modificar el nombre del proyecto
+function channgeProjectName(id, title = null) {
+  let result = ProjecstTodos.filter((p) => p.id === id);
+  for (const elements of result) {
+    if (title !== null) {
+      elements.title = title;
+    }
+  }
+  result = ProjecstTodos;
+  return result;
+}
+// console.log(channgeProjectName(2, "Andy"));
 
 //Crear un nuevo to do a un proyecto especifico
 //Eliminar un to do de un proyecto especifico
