@@ -102,8 +102,7 @@ function channgeProjectName(id, title = null) {
 function addTodoInProject(idProject, title, dueDate, priority, status) {
   let project = ProjecstTodos.filter((p) => p.id === idProject);
   let todos = project[0].todoList;
-  let lastIndex = todos.length - 1;
-  let lastTodoId = todos[lastIndex].id;
+  let lastTodoId = todos[todos.length - 1].id;
   todos.push({
     id: lastTodoId + 1,
     title: title,
