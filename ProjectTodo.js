@@ -98,7 +98,7 @@ function channgeProjectName(id, title = null) {
 }
 // console.log(channgeProjectName(2, "Andy"));
 
-//Crear un nuevo to do a un proyecto especifico
+//Crear un nuevo to-do a un proyecto especifico
 function addTodoInProject(idProject, title, dueDate, priority, status) {
   let project = ProjecstTodos.filter((p) => p.id === idProject);
   let todos = project[0].todoList;
@@ -113,8 +113,18 @@ function addTodoInProject(idProject, title, dueDate, priority, status) {
   return ProjecstTodos;
 }
 
-console.log(
-  addTodoInProject(2, "Crear portafolio", "3/10/2024", "Important", "Doing")
-);
-//Eliminar un to do de un proyecto especifico
+// console.log(
+//   addTodoInProject(2, "Crear portafolio", "3/10/2024", "Important", "Doing")
+// );
+
+//Eliminar un to-do de un proyecto especifico
+function deleteToDoInProject(idProject, idToDo) {
+  let project = ProjecstTodos.filter((p) => p.id === idProject);
+  let todos = project[0].todoList.filter((p) => p.id !== idToDo);
+  project[0].todoList = todos;
+  return ProjecstTodos;
+}
+
+console.log(deleteToDoInProject(3, 2));
+
 //Modificar un to do de un proyecto especifico
