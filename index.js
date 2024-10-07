@@ -114,7 +114,7 @@ function changeInterestPart(id, newInterest) {
 
 let CIP = changeInterestPart(1, newInterest);
 
-//Esta función sirve para crear un nuevvo objeto y añadirlo
+//Esta función sirve para crear un nuevo objeto y añadirlo
 function addNewObj(name, age, interest) {
   let lastIndex = ObjArr.length - 1;
   let lastObj = ObjArr[lastIndex].id;

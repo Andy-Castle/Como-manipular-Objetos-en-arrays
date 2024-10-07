@@ -125,6 +125,66 @@ function deleteToDoInProject(idProject, idToDo) {
   return ProjecstTodos;
 }
 
-console.log(deleteToDoInProject(3, 2));
+// console.log(deleteToDoInProject(3, 2));
 
 //Modificar un to do de un proyecto especifico
+
+function updateToDoInProject(
+  idProject,
+  idToDo,
+  title = null,
+  dueDate = null,
+  priority = null,
+  status = null
+) {
+  let project = ProjecstTodos.filter((p) => p.id === idProject);
+  let todos = project[0].todoList.filter((p) => p.id === idToDo);
+  for (const element of todos) {
+    if (title !== null) {
+      element.title = title;
+    }
+    if (dueDate !== null) {
+      element.dueDate = dueDate;
+    }
+
+    if (priority !== null) {
+      element.priority = priority;
+    }
+
+    if (status !== null) {
+      element.status = status;
+    }
+  }
+
+  return ProjecstTodos;
+}
+
+// console.log(updateToDoInProject(2, 1, "Android Studio"));
+
+//Modificar un ToDo especifico pero todo el array completo excepto el id
+
+let newToDo = [
+  {
+    title: "Demostración",
+    dueDate: "20/10/2024",
+    priority: "High",
+    status: "Done",
+  },
+];
+
+//Esta función sirve para cambiar todo el interes
+function changeToDoPart(idProject, idToDo, newToDo) {
+  let project = ProjecstTodos.filter((p) => p.id === idProject);
+  let todos = project[0].todoList.filter((p) => p.id === idToDo);
+
+  todos.forEach((e) => {
+    e.title = newToDo[0].title;
+    e.dueDate = newToDo[0].dueDate;
+    e.priority = newToDo[0].priority;
+    e.status = newToDo[0].status;
+  });
+
+  return ProjecstTodos;
+}
+
+console.log(changeToDoPart(1, 1, newToDo));
